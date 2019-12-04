@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF36C44B</color>
+    <color name="colorPrimaryDark">#7FBDD7</color>
+    <color name="colorAccent">#E14747</color>
+    <color name="colorRojoFuerte">#DB2828</color>
+    <color name="colorRojoClaro">#E14747</color>
+    <color name="colorAzulFuerte">#3B9EC3</color>
+    <color name="colorAzulIntermedio">#58B2D7</color>
+    <color name="colorAzulClaro">#7FBDD7</color>
+    <color name="typing">#FF36C44B</color>
+    <color name="colorVerde">#177723</color>
+    <color name="colorNaranja">#FF3D00</color>
+    <color name="colorNaranjaFuerte">#D15027</color>
+</resources>

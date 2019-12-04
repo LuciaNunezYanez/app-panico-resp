@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.id.socketio.MainActivity">
+
+    <ImageView
+        android:id="@+id/imgSenal"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="end"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="100dp" />
+
+    <ImageButton
+        android:id="@+id/sendButton"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:background="@drawable/alert_icon"
+        android:onClick="activarBoton"
+        android:scaleType="fitCenter"
+        android:textAlignment="center" />
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/grupofab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:fab_labelStyle="@style/etiqueta"
+        app:fab_addButtonColorNormal="@color/colorAzulIntermedio"
+        app:fab_addButtonColorPressed="@color/colorAzulFuerte">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_shop"
+            app:fab_size="normal"
+            app:fab_colorNormal="@color/colorPrimary"
+            app:fab_colorPressed="@color/colorVerde"
+            app:fab_title="Perfil"
+            />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_config"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorRojoFuerte"
+            />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_info"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/colorNaranja"
+            app:fab_colorPressed="@color/colorNaranjaFuerte"
+            />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+</android.support.design.widget.CoordinatorLayout>

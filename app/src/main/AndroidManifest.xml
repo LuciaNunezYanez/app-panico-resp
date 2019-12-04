@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.id.socketio">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_siren"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_siren"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity
+            android:name=".ConfiguracionActivity"
+            android:label="@string/title_activity_configuracion"
+            ></activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegistroActivity" />
+
+        <receiver
+            android:name=".Broadcast.BotonazoReceiver"
+            android:enabled="true"
+            android:exported="true" />
+        <receiver android:name=".PanicoWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/panico_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".Servicios.GenerarAlertaService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".Servicios.ServicioNotificacion"
+            android:enabled="true"
+            android:exported="true" />
+        <service android:name=".Servicios.FotografiaService" />
+    </application>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>

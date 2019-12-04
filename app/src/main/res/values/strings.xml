@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Botón de pánico</string>
+    <string name="title_activity_camara">camara</string>
+    <!-- Escritura de imagen fallida. Compruebe si ha otorgado el permiso WRITE_EXTERNAL_STORAGE-->
+    <string name="error_cannot_write">No se puede escribir la imagen capturada por la cámara.</string>
+    <!--cámara abierta fallida. Probablemente porque otra aplicación está usando la cámara -->
+    <string name="error_cannot_open">No se puede abrir la cámara.</string>
+    <!-- el permiso de la cámara no está disponible Solicite el permiso de la cámara antes de inicializarla.-->
+    <string name="error_cannot_get_permission">Permiso de cámara no disponible.</string>
+    <string name="error_not_having_camera">Su dispositivo no tiene cámara frontal.</string>
+    <string name="error_camera_permission_denied">Permiso de cámara denegado.</string>
+    <string name="btn_tittle_capture_image">Capturar imagen,</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="title_activity_configuracion">Configuración</string>
+</resources>
