@@ -7,6 +7,9 @@ import android.util.Base64;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -27,6 +30,33 @@ public class Utilidades {
         String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
         return imagenString;
     }
+    public static String convertirAudioString(String pathAudio) {
+
+        String audioString = "";
+        byte[] audioBytes;
+        try {
+
+            File audioFile = new File(pathAudio);
+            // Validar tamaño del archivo
+            long fileSize = audioFile.length();
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            FileInputStream fis = new FileInputStream(new File(pathAudio));
+            byte[] buf = new byte[1024];
+            int n;
+            while (-1 != (n = fis.read(buf)))
+                baos.write(buf, 0, n);
+            audioBytes = baos.toByteArray();
+
+            // Aquí va la cadena Base64
+            audioString = Base64.encodeToString(audioBytes, Base64.DEFAULT);
+
+        } catch (Exception e) {
+            Log.d(TAG, "Ocurrió un error al codificar audio a Base64");
+        }
+        return audioString;
+    }
+
 
     public Boolean puedeGenerarNuevaAlerta(Context context){
         // Antes de generar nuevo reporte ver cuando fue el ultimo que hizo

@@ -11,8 +11,8 @@
         android:theme="@style/Theme.AppCompat.Light">
         <activity
             android:name=".ConfiguracionActivity"
-            android:label="@string/title_activity_configuracion"
-            ></activity>
+            android:label="@string/title_activity_configuracion" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +21,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistroActivity" />
-
         <receiver
             android:name=".Broadcast.BotonazoReceiver"
             android:enabled="true"
             android:exported="true" />
+
         <receiver android:name=".PanicoWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -35,6 +35,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/panico_widget_info" />
         </receiver>
+        <service
+            android:name=".Servicios.AudioService"
+            android:exported="false"></service>
 
         <service
             android:name=".Servicios.GenerarAlertaService"
@@ -48,12 +51,13 @@
     </application>
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

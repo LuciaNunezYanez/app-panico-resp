@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.github.nkzawa.emitter.Emitter;
+import com.id.socketio.Servicios.AudioService;
 import com.id.socketio.Servicios.FotografiaService;
 import com.id.socketio.Utilidades.EnviarImagenes;
 import com.id.socketio.Utilidades.Utilidades;
@@ -27,6 +29,7 @@ import com.id.socketio.Utilidades.Utilidades;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 
@@ -147,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     dataComercio.put("fecha", util.obtenerFecha());
 
                     mSocket.emit("botonActivado", dataComercio);
+                    Log.d(TAG,"Según emitió");
                     btnPresionado = true;
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -167,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             intentFrontal.putExtra("reporteCreado", reporteCreado);
             intentFrontal.putExtra("tipoCamara", "frontal");
             intentFrontal.putExtra("receiver", resultFReceiver);
-            getApplicationContext().startService(intentFrontal);
+            startService(intentFrontal);
 
         } else if (getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
             // INICIAR PROCESO CAMARA TRAERA
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
             intentTrasera.putExtra("reporteCreado", reporteCreado);
             intentTrasera.putExtra("tipoCamara", "trasera");
             intentTrasera.putExtra("receiver", resultTReceiver);
-            getApplicationContext().startService(intentTrasera);
+            startService(intentTrasera);
         } else {
             if(procesoImagenFrontal){
                 // ENVIA LA IMAGEN FRONTAL (2)
@@ -352,6 +356,29 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Termina proceso vacio de fotografias");
         // Al menos guardar las fotografía en el dispositivo
     }
+
+    public void grabarAudio(View view){
+        Log.d(TAG, "Init grabar audio...");
+
+        Intent intent = new Intent(MainActivity.this, AudioService.class);
+        intent.putExtra("nombreAudio", "audioPrueba");
+        startService(intent);
+
+        /*String PATH_NAME = "";
+        try {
+            MediaRecorder recorder = new MediaRecorder();
+            recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            recorder.setOutputFile(PATH_NAME);
+            recorder.prepare();
+            recorder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+    }
+
+
 
     public void irConfiguracion(View view){
         Intent intent = new Intent(MainActivity.this, ConfiguracionActivity.class);
