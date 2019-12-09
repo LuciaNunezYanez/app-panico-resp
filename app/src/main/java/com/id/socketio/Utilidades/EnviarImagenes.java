@@ -40,7 +40,7 @@ public class EnviarImagenes {
 
             // Cuerpo de la petición
             String archivo = IMAGEN_FRONTAL;
-            String URL = Constantes.url + "/upload/imagenes/" + reporteCreado;
+            String URL = Constantes.URL + "/upload/imagenes/" + reporteCreado;
 
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             JSONObject jsonObjectBody = new JSONObject();
@@ -101,11 +101,11 @@ public class EnviarImagenes {
 
         //Log.d(TAG, "Enviaré imagen trasera" + IMAGEN_TRASERA.length());
 
-        int contador = 0;
-        Boolean tiempoEspera = false;
-        if(reporteCreado >= 1){
-            tiempoEspera = true;
-        }
+        //int contador = 0;
+        //Boolean tiempoEspera = false;
+        //if(reporteCreado >= 1){
+          //  tiempoEspera = true;
+        //}
 
         if(reporteCreado >=1 ){
             // COMIENZA HILO PARA ENVIAR IMAGEN FRONTAL
@@ -114,7 +114,7 @@ public class EnviarImagenes {
 
             // Cuerpo de la petición
             String archivo = IMAGEN_TRASERA;
-            String URL = Constantes.url + "/upload/imagenes/" + reporteCreado;
+            String URL = Constantes.URL + "/upload/imagenes/" + reporteCreado;
 
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             JSONObject jsonObjectBody = new JSONObject();

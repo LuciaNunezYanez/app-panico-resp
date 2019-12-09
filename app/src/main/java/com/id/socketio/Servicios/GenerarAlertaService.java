@@ -49,7 +49,7 @@ public class GenerarAlertaService extends Service {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket(Constantes.url);
+            mSocket = IO.socket(Constantes.URL);
         } catch (URISyntaxException e) {}
     }
 

@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket(Constantes.url);
+            mSocket = IO.socket(Constantes.URL);
         } catch (URISyntaxException e) {}
     }
 
@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if(alertaRecibida){
                         // TOMAR FOTOGRAFIAS
+                        comenzarGrabacionAudio();
                         iniciarProcesoFotografias();
                         Log.d(TAG, "El reporte fue creado con exito");
 
@@ -360,24 +361,17 @@ public class MainActivity extends AppCompatActivity {
     public void grabarAudio(View view){
         Log.d(TAG, "Init grabar audio...");
 
-        Intent intent = new Intent(MainActivity.this, AudioService.class);
-        intent.putExtra("nombreAudio", "audioPrueba");
-        startService(intent);
-
-        /*String PATH_NAME = "";
-        try {
-            MediaRecorder recorder = new MediaRecorder();
-            recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-            recorder.setOutputFile(PATH_NAME);
-            recorder.prepare();
-            recorder.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        comenzarGrabacionAudio();
     }
 
+    public void comenzarGrabacionAudio(){
+        Log.d(TAG, "Init grabar audio...");
+
+        Intent intent = new Intent(MainActivity.this, AudioService.class);
+        intent.putExtra("nombreAudio", "audioPruebaMain");
+        intent.putExtra("reporteCreado", reporteCreado);
+        startService(intent);
+    }
 
 
     public void irConfiguracion(View view){

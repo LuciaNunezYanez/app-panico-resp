@@ -28,17 +28,18 @@ public class Utilidades {
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
         byte[] imagenByte = array.toByteArray();
         String imagenString = Base64.encodeToString(imagenByte, Base64.DEFAULT);
+
+
         return imagenString;
     }
+
     public static String convertirAudioString(String pathAudio) {
 
         String audioString = "";
         byte[] audioBytes;
         try {
-
-            File audioFile = new File(pathAudio);
-            // Validar tamaño del archivo
-            long fileSize = audioFile.length();
+            // Log.d(TAG, "El peso del archivo es: " + new File(pathAudio).length());
+            // 25 KB aprox para 15 segundos
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             FileInputStream fis = new FileInputStream(new File(pathAudio));
@@ -48,7 +49,6 @@ public class Utilidades {
                 baos.write(buf, 0, n);
             audioBytes = baos.toByteArray();
 
-            // Aquí va la cadena Base64
             audioString = Base64.encodeToString(audioBytes, Base64.DEFAULT);
 
         } catch (Exception e) {
