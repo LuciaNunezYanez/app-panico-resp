@@ -13,10 +13,10 @@ public class Constantes {
     //public static String EXTENSION_AUDIO = "3gp";
     public static String EXTENSION_AUDIO = "mp3";
 
-    public static String URL = "http://10.11.112.81:3000";
-    // public static String url = "http://10.11.113.136:3000";
-    // public static String url = "http://172.16.1.171:3000";
-    // public static String URL = "http://192.168.0.7:3000";
-    // public static String url = "http://192.168.0.26:3000";
+    // public static String URL = "http://10.11.112.172:3000";
+    // public static String URL = "http://10.11.112.32:3000";
+    // public static String URL = "http://172.16.1.171:3000";
+    public static String URL = "http://192.168.0.9:3000";
+    // public static String URL = "http://192.168.0.26:3000";
 
 }
